@@ -17,7 +17,7 @@ export class RecipeService {
     const db = getFirestore(app);
     const recipesCol = collection(db, 'recipes');
     const recipesSnapshot = await getDocs(recipesCol);
-    const recipesList = recipesSnapshot.docs.map(doc => doc.data()) as Recipe[];
+    const recipesList = recipesSnapshot.docs.map(doc => Object.assign(doc.data(), { id: doc.id})) as Recipe[];
     return recipesList;
   }
 }
