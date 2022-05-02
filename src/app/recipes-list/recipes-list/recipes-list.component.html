@@ -1,1 +1,6 @@
-<p>recepies-list works!</p>
+<section>
+  <div *ngIf="isLoading">... loading</div>
+  <div *ngIf="recipes">
+    <app-recipe-snapshot *ngFor="let x of recipes" [recipe]="x"></app-recipe-snapshot>
+  </div>
+</section>

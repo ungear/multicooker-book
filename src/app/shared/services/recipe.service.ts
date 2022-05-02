@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { Recipe } from 'src/app/typing/recipe';
 import { firebaseConfig } from '../../../../firebase-config';
 
 
@@ -11,16 +12,12 @@ export class RecipeService {
 
   constructor() { }
 
-  getRecipes(){
+  async getRecipes(): Promise<Recipe[]> {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    return getCities(db);
+    const recipesCol = collection(db, 'recipes');
+    const recipesSnapshot = await getDocs(recipesCol);
+    const recipesList = recipesSnapshot.docs.map(doc => doc.data()) as Recipe[];
+    return recipesList;
   }
-}
-
-async function getCities(db: any) {
-  const recipesCol = collection(db, 'recipes');
-  const recipesSnapshot = await getDocs(recipesCol);
-  const cityList = recipesSnapshot.docs.map(doc => doc.data());
-  return cityList;
 }

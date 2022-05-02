@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
+import { Recipe } from 'src/app/typing/recipe';
 
 @Component({
   selector: 'app-recipes-list',
@@ -7,11 +8,14 @@ import { RecipeService } from 'src/app/shared/services/recipe.service';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent implements OnInit {
+  isLoading = false;
+  recipes?: Recipe[];
 
   constructor(private recipeService: RecipeService) { }
 
   async ngOnInit() {
-    const recipes = await this.recipeService.getRecipes();
-    console.log(recipes);
+    this.isLoading = true;
+    this.recipes = await this.recipeService.getRecipes();
+    this.isLoading = false;
   }
 }
