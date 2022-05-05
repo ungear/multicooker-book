@@ -18,4 +18,8 @@ export class RecipesListComponent implements OnInit {
     this.recipes = await this.recipeService.getRecipes();
     this.isLoading = false;
   }
+
+  onSearchTearmChanged(newValue: string){
+    console.log(newValue)
+  }
 }

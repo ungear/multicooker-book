@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RecepiesListRoutingModule } from './recepies-list-routing.module';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeSnapshotComponent } from './recipe-snapshot/recipe-snapshot.component';
-
+import { SearchbarComponent } from './searchbar/searchbar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     RecipesListComponent,
-    RecipeSnapshotComponent
+    RecipeSnapshotComponent,
+    SearchbarComponent
   ],
   imports: [
     CommonModule,
-    RecepiesListRoutingModule
+    RecepiesListRoutingModule,
+    FormsModule,
   ]
 })
 export class RecepiesListModule { }

@@ -1,4 +1,7 @@
 <section>
+  <div>
+    <app-searchbar (tearmChanged)="onSearchTearmChanged($event)"></app-searchbar>
+  </div>
   <div *ngIf="isLoading">... loading</div>
   <div *ngIf="recipes">
     <app-recipe-snapshot *ngFor="let x of recipes" [recipe]="x"></app-recipe-snapshot>
