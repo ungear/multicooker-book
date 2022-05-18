@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
@@ -7,14 +8,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
   @Output() tearmChanged = new EventEmitter<string>();
+  @ViewChild('searchbar', {static: true}) searchbarEl!: ElementRef<HTMLInputElement>;
+  
   tearm = '';
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onInputChanged(val: Event){
-    this.tearmChanged.emit(this.tearm);
-  }
+    fromEvent(this.searchbarEl.nativeElement, 'keyup')
+      .subscribe(() => {
+        this.tearmChanged.emit(this.tearm);
+      })
+  } 
 }
