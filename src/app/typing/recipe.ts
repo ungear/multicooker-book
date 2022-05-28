@@ -2,11 +2,7 @@ export interface Recipe {
   id: string;
   name: string;
   description: string;
-  ingredients: Ingredient[];
+  ingredients: String[];
   page: string;
 }
 
-export interface Ingredient {
-  name: string;
-  amount: string;
-}
