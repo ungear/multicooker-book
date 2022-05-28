@@ -1,0 +1,3 @@
+<select [(ngModel)]="selectedMeatType" (change)="onSelectChange()">
+  <option *ngFor="let op of options" value="{{op.value}}">{{op.name}}</option>
+</select>

@@ -5,13 +5,15 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeSnapshotComponent } from './recipe-snapshot/recipe-snapshot.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
+import { MeatTypeSelectorComponent } from './meat-type-selector/meat-type-selector.component';
 
 
 @NgModule({
   declarations: [
     RecipesListComponent,
     RecipeSnapshotComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    MeatTypeSelectorComponent
   ],
   imports: [
     CommonModule,

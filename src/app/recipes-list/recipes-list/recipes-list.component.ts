@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
 import { Recipe } from 'src/app/typing/recipe';
+import { MeatType } from '../../enums/meatTypes';
 
 @Component({
   selector: 'app-recipes-list',
@@ -20,6 +21,10 @@ export class RecipesListComponent implements OnInit {
   }
 
   onSearchTearmChanged(newValue: string){
+    console.log(newValue)
+  }
+
+  onMeatTypeChanged(newValue: MeatType | null){
     console.log(newValue)
   }
 }
