@@ -10,13 +10,15 @@ import { MeatType } from '../../enums/meatTypes';
 })
 export class RecipesListComponent implements OnInit {
   isLoading = false;
-  recipes?: Recipe[];
+  originalRecipes: Recipe[] = [];
+  visibleRecipes: Recipe[] = [];
 
   constructor(private recipeService: RecipeService) { }
 
   async ngOnInit() {
     this.isLoading = true;
-    this.recipes = await this.recipeService.getRecipes();
+    this.originalRecipes = await this.recipeService.getRecipes();
+    this.visibleRecipes = this.originalRecipes;
     this.isLoading = false;
   }
 
@@ -24,7 +26,9 @@ export class RecipesListComponent implements OnInit {
     console.log(newValue)
   }
 
-  onMeatTypeChanged(newValue: MeatType | null){
-    console.log(newValue)
+  onMeatTypeChanged(newMeatType: MeatType | null){
+    this.visibleRecipes = newMeatType 
+      ? this.originalRecipes.filter(x => x.meatType === newMeatType)
+      : this.originalRecipes;
   }
 }
