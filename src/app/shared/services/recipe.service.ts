@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore/lite';
 import { Recipe, RecipeDto } from 'src/app/typing/recipe';
 import { firebaseConfig } from '../../../../firebase-config';
 import { MeatType } from '../../enums/meatTypes';
@@ -24,6 +24,14 @@ export class RecipeService {
       return x as Recipe;
     })
     return recipesList;
+  }
+
+  async getRecipeById(id: string): Promise<RecipeDto> {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const docRef = doc(db, 'recipes', id);
+    const someDoc = await getDoc(docRef)
+    return someDoc.data() as RecipeDto;
   }
 }
 
