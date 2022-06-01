@@ -3,7 +3,6 @@ import { MeatType } from '../enums/meatTypes';
 export interface RecipeDto {
   id: string;
   name: string;
-  description: string;
   ingredients: string[];
   page: string;
 }
