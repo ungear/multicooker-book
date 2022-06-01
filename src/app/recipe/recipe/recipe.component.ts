@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
+import { RecipeDto } from 'src/app/typing/recipe';
 
 @Component({
   selector: 'app-recipe',
@@ -8,6 +9,7 @@ import { RecipeService } from 'src/app/shared/services/recipe.service';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
+  recipe!: RecipeDto;
 
   constructor(
     private route: ActivatedRoute,
@@ -16,7 +18,7 @@ export class RecipeComponent implements OnInit {
 
   async ngOnInit() {
     const recipeId = this.route.snapshot.params['id'];
-    const recipe = await this.recipeService.getRecipeById(recipeId);
+    this.recipe = await this.recipeService.getRecipeById(recipeId);
   }
 
 }
