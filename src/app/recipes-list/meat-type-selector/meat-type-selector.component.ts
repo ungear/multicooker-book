@@ -15,6 +15,7 @@ export class MeatTypeSelectorComponent implements OnInit {
     { name: "свинина", value: [MeatType.pork] },
     { name: "индейка", value: [MeatType.turkey] },
     { name: "курица", value: [MeatType.chiken] },
+    { name: "другое", value: [MeatType.other] },
   ]
   selectedMeatType:MeatType | null  = null;
 
