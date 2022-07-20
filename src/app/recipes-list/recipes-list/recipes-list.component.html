@@ -1,7 +1,7 @@
 <section>
   <div class="controls-container">
     <app-meat-type-selector (meatTypeChanged)="onMeatTypeChanged($event)"></app-meat-type-selector>
-    <app-searchbar (tearmChanged)="onSearchTearmChanged($event)"></app-searchbar>
+    <!-- <app-searchbar (tearmChanged)="onSearchTearmChanged($event)"></app-searchbar>  -->
   </div>
   <div *ngIf="isLoading">... loading</div>
   <div *ngIf="visibleRecipes">
