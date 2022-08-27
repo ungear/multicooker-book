@@ -1,3 +1,13 @@
+:host{
+  display: block;
+  padding: 0 10px;
+}
 .title{
   text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .title{
+    text-align: center;
+  }
 }
