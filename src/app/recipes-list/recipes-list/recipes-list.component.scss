@@ -1,5 +1,9 @@
 :host{
   .controls-container{
     display: flex;
+    padding: 5px;
+  }
+  .list-container{
+    padding: 0 5px;
   }
 }

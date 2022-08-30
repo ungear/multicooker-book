@@ -4,7 +4,7 @@
     <!-- <app-searchbar (tearmChanged)="onSearchTearmChanged($event)"></app-searchbar>  -->
   </div>
   <div *ngIf="isLoading">... loading</div>
-  <div *ngIf="visibleRecipes">
+  <div *ngIf="visibleRecipes" class="list-container">
     <app-recipe-snapshot *ngFor="let x of visibleRecipes" [recipe]="x"></app-recipe-snapshot>
   </div>
 </section>
