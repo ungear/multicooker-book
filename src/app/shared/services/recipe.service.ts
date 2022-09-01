@@ -9,10 +9,13 @@ import { MeatType } from '../../enums/meatTypes';
   providedIn: 'root'
 })
 export class RecipeService {
+  private recipesCache: Recipe[] | null= null;
 
   constructor() { }
 
   async getRecipes(): Promise<Recipe[]> {
+    if(this.recipesCache) return this.recipesCache;
+    
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const recipesCol = collection(db, 'recipes');
@@ -23,6 +26,7 @@ export class RecipeService {
       (x as Recipe).meatType = meatType;
       return x as Recipe;
     })
+    this.recipesCache = recipesList;
     return recipesList;
   }
 
