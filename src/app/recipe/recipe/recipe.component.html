@@ -1,7 +1,12 @@
-<h3 class="title">{{recipe.name}}</h3>
-<ul>
-  <li *ngFor="let ing of recipe.ingredients">{{ing}}</li>
-</ul>
-<div>
-  Page: {{recipe.page}}
-</div>
+<ng-container *ngIf="recipe; else elseBlock">
+   <h3 class="title">{{recipe.name}}</h3>
+   <ul>
+     <li *ngFor="let ing of recipe.ingredients">{{ing}}</li>
+   </ul>
+   <div>
+     Page: {{recipe.page}}
+   </div>
+</ng-container>
+
+<ng-template #elseBlock>... loading</ng-template>
+

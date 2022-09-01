@@ -9,7 +9,7 @@ import { RecipeDto } from 'src/app/typing/recipe';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  recipe!: RecipeDto;
+  recipe?: RecipeDto;
 
   constructor(
     private route: ActivatedRoute,
