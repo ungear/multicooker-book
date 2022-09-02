@@ -44,6 +44,9 @@ const meatTypeByMeatName: {[key: string]: MeatType} = {
   "свинина": MeatType.pork,
   "индейка": MeatType.turkey,
   "курица": MeatType.chiken,
+  "куриное филе": MeatType.chiken, 
+  "куриные голени": MeatType.chiken, 
+  "куриные крылышки": MeatType.chiken
 }
 
 function getRecipeMeatType(ingredientsList: string[]): MeatType{
